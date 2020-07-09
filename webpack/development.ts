@@ -8,7 +8,7 @@ const config: webpack.Configuration = {
     inline: true,
     hot: true,
     overlay: true,
-    stats: 'minimal',
+    quiet: true,
     port: 8080
   },
   plugins: [new FriendlyErrorsWebpackPlugin()]
