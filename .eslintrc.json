@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/recommended",
+    "prettier",
+    "prettier/vue"
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020,
+    "parser": "@typescript-eslint/parser"
+  },
+  "plugins": ["@typescript-eslint"]
+}
