@@ -1,15 +1,15 @@
 <template>
-  <div class="p-5">{{ msg }}</div>
+  <home-screen />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import HomeScreen from './components/home-screen.vue';
+
 export default defineComponent({
-  setup() {
-    return {
-      msg: 'hello'
-    };
+  components: {
+    HomeScreen
   }
 });
 </script>

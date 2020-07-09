@@ -11,7 +11,11 @@ const config: webpack.Configuration = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'app.bundle.js'
   },
-  plugins: [new CleanWebpackPlugin(), new TerserWebpackPlugin()]
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserWebpackPlugin()]
+  },
+  plugins: [new CleanWebpackPlugin()]
 };
 
 module.exports = config;

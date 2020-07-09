@@ -1,0 +1,21 @@
+{
+  "plugins": [
+    "@babel/plugin-transform-typescript",
+    "@ant-design-vue/babel-plugin-jsx"
+  ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    [
+      "@babel/preset-typescript",
+      {
+        "allExtensions": true,
+        "isTSX": true
+      }
+    ]
+  ]
+}
