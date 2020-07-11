@@ -2,8 +2,8 @@
   <div class="flex flex-col h-screen">
     <div class="h-10 w-full" />
     <carousel class="flex-grow">
-      <div class="bg-red-300 w-10 h-10" />
-      <div class="bg-green-300 w-10 h-10" />
+      <div class="bg-red-300 w-full h-full" />
+      <div class="bg-green-300 w-full h-full" />
     </carousel>
   </div>
 </template>
