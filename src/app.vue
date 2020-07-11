@@ -25,6 +25,6 @@ export default defineComponent({
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 #app {
-  @apply flex justify-center items-center flex-grow min-h-screen bg-gray-300;
+  @apply flex justify-center items-center flex-grow min-h-screen bg-gray-100;
 }
 </style>
