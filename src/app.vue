@@ -18,4 +18,5 @@ export default defineComponent({
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '~@fortawesome/fontawesome-free/css/all.css';
 </style>

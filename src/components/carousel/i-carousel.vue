@@ -3,6 +3,8 @@ import BezierEasing from 'bezier-easing';
 import clamp from 'lodash.clamp';
 import { defineComponent, ref, computed, onMounted, h } from 'vue';
 
+import ICarouselPagination from './i-carousel-pagination.vue';
+
 export default defineComponent({
   setup(props, { slots }) {
     const defaultSlot = slots.default;
@@ -71,7 +73,7 @@ export default defineComponent({
             (currentTime - animationStartTime) /
             (animationEndTime - animationStartTime);
 
-          if (progress >= 1) {
+          if (progress >= 1.0) {
             currentPage.value = targetPage;
             swipeOffset.value = 0;
             swipeIsSettling.value = false;
@@ -99,40 +101,32 @@ export default defineComponent({
       return () => (
         <div
           ref={carouselRef}
-          class="carousel"
+          class="flex flex-col relative w-full overflow-x-hidden"
           onTouchstart={onTouchStart}
           onTouchmove={onTouchMove}
           onTouchend={onTouchEnd}
         >
-          {defaultSlot().map((el, index) => (
-            <div
-              class="carousel-page"
-              style={{
-                left: `${calculatePageOffset(index)}px`
-              }}
-            >
-              {el}
-            </div>
-          ))}
+          <div class="relative flex-grow">
+            {defaultSlot().map((el, index) => (
+              <div
+                class="absolute top-0 bottom-0 left-0 w-full"
+                style={{
+                  left: `${calculatePageOffset(index)}px`
+                }}
+              >
+                {el}
+              </div>
+            ))}
+          </div>
+          <ICarouselPagination
+            currentPage={currentPage.value}
+            pageCount={pageCount.value}
+          />
         </div>
       );
     }
+
+    return () => <div />;
   }
 });
 </script>
-
-<style lang="postcss">
-.carousel {
-  position: relative;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.carousel .carousel-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  bottom: 0;
-}
-</style>
