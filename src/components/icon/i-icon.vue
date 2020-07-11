@@ -1,9 +1,6 @@
 <template>
-  <div
-    class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-lg"
-    :style="{ color, background }"
-  >
-    <i class="fa text-4xl" :class="`fa-${icon}`" />
+  <div class="icon" :style="{ color, background }">
+    <i class="fa" :class="`fa-${icon}`" />
   </div>
 </template>
 
@@ -39,3 +36,15 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="postcss" scoped>
+.icon {
+  @apply inline-flex items-center justify-center rounded-md;
+  width: 56px;
+  height: 56px;
+}
+
+.icon .fa {
+  font-size: 32px;
+}
+</style>

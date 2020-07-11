@@ -16,7 +16,7 @@ export default defineComponent({
       }
 
       return () => (
-        <div class="flex flex-row relative bg-gray-400 bg-opacity-75 rounded-lg m-2 p-4">
+        <div class="flex flex-row relative bg-gray-400 bg-opacity-75 rounded-lg m-2 p-3">
           {defaultSlot().map(el => (
             <div class="flex-1">{el}</div>
           ))}
