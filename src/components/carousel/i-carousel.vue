@@ -15,28 +15,37 @@ export default defineComponent({
     const currentPage = ref(0);
 
     const swipeOffset = ref(0);
-    const swipeStartPosition = ref<number>(0);
-    const swipeIsSettling = ref(false);
+    let swipeStartPosition = 0;
+    let swipeIsInProgress = false;
+    let swipeIsSettling = false;
 
     onMounted(() => {
       carouselWidth.value =
         carouselRef?.value?.getBoundingClientRect().width ?? 0;
     });
 
-    const onTouchStart = (payload: TouchEvent) => {
-      if (swipeIsSettling.value) return;
-
-      swipeStartPosition.value = payload.touches[0].screenX;
+    const getScreenXPosition = (payload: TouchEvent | PointerEvent) => {
+      if (payload instanceof TouchEvent) {
+        return payload.touches[0].screenX;
+      }
+      return payload.screenX;
     };
 
-    const onTouchMove = (payload: TouchEvent) => {
-      if (swipeIsSettling.value) return;
+    const onSwipeStart = (payload: TouchEvent | PointerEvent) => {
+      if (swipeIsSettling || swipeIsInProgress) return;
 
-      swipeOffset.value = payload.touches[0].screenX - swipeStartPosition.value;
+      swipeStartPosition = getScreenXPosition(payload);
+      swipeIsInProgress = true;
     };
 
-    const onTouchEnd = () => {
-      if (swipeIsSettling.value) return;
+    const onSwipeMove = (payload: TouchEvent | PointerEvent) => {
+      if (swipeIsSettling || !swipeIsInProgress) return;
+
+      swipeOffset.value = getScreenXPosition(payload) - swipeStartPosition;
+    };
+
+    const onSwipeEnd = () => {
+      if (swipeIsSettling || !swipeIsInProgress) return;
 
       const animationDuration =
         Math.abs(swipeOffset.value / carouselWidth.value) * 500;
@@ -77,7 +86,7 @@ export default defineComponent({
           if (progress >= 1.0) {
             currentPage.value = targetPage;
             swipeOffset.value = 0;
-            swipeIsSettling.value = false;
+            swipeIsSettling = false;
             return;
           }
 
@@ -90,7 +99,8 @@ export default defineComponent({
         });
       };
 
-      swipeIsSettling.value = true;
+      swipeIsInProgress = false;
+      swipeIsSettling = true;
 
       updateSwipeSettling();
     };
@@ -103,9 +113,15 @@ export default defineComponent({
         <div
           ref={carouselRef}
           class="flex flex-col relative w-full overflow-x-hidden"
-          onTouchstart={onTouchStart}
-          onTouchmove={onTouchMove}
-          onTouchend={onTouchEnd}
+          onTouchstart={onSwipeStart}
+          onTouchmove={onSwipeMove}
+          onTouchend={onSwipeEnd}
+          onPointerdown={onSwipeStart}
+          onPointermove={onSwipeMove}
+          onPointerup={onSwipeEnd}
+          onPointerleave={onSwipeEnd}
+          onPointerout={onSwipeEnd}
+          onPointercancel={onSwipeEnd}
         >
           <div class="relative flex-grow">
             {defaultSlot().map((el, index) => (
