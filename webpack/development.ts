@@ -7,6 +7,7 @@ const config: webpack.Configuration = {
     inline: true,
     hot: true,
     overlay: true,
+    stats: 'minimal',
     port: 8080
   }
 };
