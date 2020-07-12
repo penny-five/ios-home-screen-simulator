@@ -1,9 +1,12 @@
 <template>
-  <div class="icon" :style="{ color, background }">
-    <i class="fa" :class="`fa-${icon}`" />
+  <div class="app-icon">
+    <i class="icon fa" :class="`fa-${icon}`" :style="{ color, background }" />
     <span v-if="notificationCount > 0" class="notification-count">{{
       notificationCount
     }}</span>
+    <div v-if="title" class="title">
+      <span class="truncate">{{ title }}</span>
+    </div>
   </div>
 </template>
 
@@ -16,12 +19,17 @@ export default defineComponent({
       type: String,
       required: true
     },
+    title: {
+      type: String,
+      required: false,
+      default: null
+    },
     color: {
       type: String,
       default: '#000000'
     },
     backgroundColor: {
-      type: null as PropType<string | string[]>,
+      type: (null as unknown) as PropType<string | string[]>,
       default: '#FFFFFF'
     },
     notificationCount: {
@@ -45,21 +53,27 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" scoped>
-.icon {
-  @apply relative inline-flex items-center justify-center rounded-md;
-  width: 52px;
-  height: 52px;
+.app-icon {
+  @apply relative inline-flex flex-col items-center justify-center max-w-full;
 
-  &:hover {
-    &::after {
-      @apply rounded-md absolute top-0 right-0 bottom-0 left-0 z-10;
-      content: '';
-      background-color: #3535351f;
+  & > .icon {
+    @apply relative inline-flex flex-col items-center justify-center rounded-md;
+    font-size: 30px;
+    width: 52px;
+    height: 52px;
+
+    &:hover {
+      &::after {
+        @apply rounded-md absolute top-0 right-0 bottom-0 left-0 z-10;
+        content: '';
+        background-color: #3535351f;
+      }
     }
   }
 
-  & > .fa {
-    font-size: 30px;
+  & > .title {
+    @apply inline-flex text-white text-sm truncate max-w-full select-none font-bold;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   }
 
   & > .notification-count {

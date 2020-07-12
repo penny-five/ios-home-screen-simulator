@@ -1,27 +1,23 @@
 <script lang="tsx">
-import times from 'lodash.times';
 import { defineComponent, h } from 'vue';
 
-const DOCK_MAX_ICON_COUNT = 4;
+const DOCK_MAX_ITEM_COUNT = 4;
 
 export default defineComponent({
   setup(props, { slots }) {
     const defaultSlot = slots.default;
 
     if (defaultSlot) {
-      if (defaultSlot().length > DOCK_MAX_ICON_COUNT) {
+      if (defaultSlot().length > DOCK_MAX_ITEM_COUNT) {
         throw new Error(
           `Too many items added to Dock: ${defaultSlot().length}`
         );
       }
 
       return () => (
-        <div class="flex flex-row relative bg-gray-400 bg-opacity-50 rounded-lg mt-0 m-1 p-3">
+        <div class="dock">
           {defaultSlot().map(el => (
-            <div class="flex-1">{el}</div>
-          ))}
-          {times(DOCK_MAX_ICON_COUNT - defaultSlot().length, () => (
-            <div class="flex-1" />
+            <div class="dock-item">{el}</div>
           ))}
         </div>
       );
@@ -31,3 +27,14 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="postcss">
+.dock {
+  @apply flex flex-row relative bg-gray-400 bg-opacity-50 rounded-lg mt-0 m-1 p-3;
+
+  & > .dock-item {
+    @apply min-w-0;
+    flex-basis: 25%;
+  }
+}
+</style>
