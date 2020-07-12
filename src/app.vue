@@ -19,6 +19,7 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
+@import '../assets/fonts/fonts.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
