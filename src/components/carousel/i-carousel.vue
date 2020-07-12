@@ -11,15 +11,16 @@ export default defineComponent({
 
     const carouselRef = ref<Element>();
     const carouselWidth = ref(0);
-    const pageCount = computed(() => defaultSlot().length);
+    const pageCount = computed(() => defaultSlot?.().length ?? 0);
     const currentPage = ref(0);
 
     const swipeOffset = ref(0);
-    const swipeStartPosition = ref<number>(null);
+    const swipeStartPosition = ref<number>(0);
     const swipeIsSettling = ref(false);
 
     onMounted(() => {
-      carouselWidth.value = carouselRef.value.getBoundingClientRect().width;
+      carouselWidth.value =
+        carouselRef?.value?.getBoundingClientRect().width ?? 0;
     });
 
     const onTouchStart = (payload: TouchEvent) => {
