@@ -19,12 +19,12 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
-@import '../assets/fonts/fonts.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @import '~@fortawesome/fontawesome-free/css/all.css';
-@import '../assets/utilities.css';
+@import '../assets/css/fonts.css';
+@import '../assets/css/utilities.css';
 
 #app {
   @apply flex justify-center items-center flex-grow min-h-screen bg-gray-100;

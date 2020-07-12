@@ -59,8 +59,8 @@ export default defineComponent({
   & > .icon {
     @apply relative inline-flex flex-col items-center justify-center rounded-md;
     font-size: 30px;
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
 
     &:hover {
       &::after {

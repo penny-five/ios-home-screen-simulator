@@ -15,9 +15,11 @@ export default defineComponent({
       }
 
       return () => (
-        <div class="app-grid">
+        <div class="flex flex-row flex-wrap overflow-y-hidden pt-6 pb-2 px-1">
           {defaultSlot().map(el => (
-            <div class="app-grid-item">{el}</div>
+            <div class="min-w-0 flex flex-basis-25 items-center justify-center mb-3 px-1">
+              {el}
+            </div>
           ))}
         </div>
       );
@@ -27,14 +29,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style lang="postcss">
-.app-grid {
-  @apply flex flex-row flex-wrap overflow-y-hidden pt-6 pb-2 px-1;
-
-  & > .app-grid-item {
-    @apply min-w-0 flex items-center justify-center mb-3 px-1;
-    flex-basis: 25%;
-  }
-}
-</style>

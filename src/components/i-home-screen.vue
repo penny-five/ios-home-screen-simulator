@@ -9,15 +9,21 @@
         <i-app-icon
           icon="phone"
           title="Phone"
-          :color="theme.colors.red['500']"
-          background-color="white"
+          color="white"
+          :background-color="[
+            theme.colors.green['400'],
+            theme.colors.green['500']
+          ]"
           :notification-count="80"
         />
         <i-app-icon
           icon="user"
           title="Contacts"
-          :color="theme.colors.green['500']"
-          background-color="white"
+          color="white"
+          :background-color="[
+            theme.colors.green['400'],
+            theme.colors.green['500']
+          ]"
         />
         <i-app-icon
           icon="phone"

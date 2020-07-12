@@ -15,9 +15,9 @@ export default defineComponent({
       }
 
       return () => (
-        <div class="dock">
+        <div class="flex flex-row relative bg-gray-400 bg-opacity-50 rounded-lg mt-0 m-1 p-3">
           {defaultSlot().map(el => (
-            <div class="dock-item">{el}</div>
+            <div class="min-w-0 flex-basis-25">{el}</div>
           ))}
         </div>
       );
@@ -27,14 +27,3 @@ export default defineComponent({
   }
 });
 </script>
-
-<style lang="postcss">
-.dock {
-  @apply flex flex-row relative bg-gray-400 bg-opacity-50 rounded-lg mt-0 m-1 p-3;
-
-  & > .dock-item {
-    @apply min-w-0;
-    flex-basis: 25%;
-  }
-}
-</style>

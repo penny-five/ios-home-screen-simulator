@@ -1,10 +1,10 @@
 <template>
   <div class="flex pb-1 px-4 w-full">
-    <div class="left">
+    <div class="text-center flex-basis-25">
       <span class="text-xs text-white font-bold truncate">10:00</span>
     </div>
     <div class="notch" />
-    <div class="right">
+    <div class="text-center flex-basis-25">
       <span class="text-xs text-white font-bold truncate">100 %</span>
     </div>
   </div>
@@ -17,18 +17,12 @@ export default defineComponent({});
 </script>
 
 <style lang="postcss" scoped>
-.left {
-  @apply text-center;
-  flex-basis: 25%;
-}
-
 .notch {
-  @apply relative ml-2 mr-2 flex-grow rounded-b-md;
+  @apply relative ml-2 mr-2 flex-grow rounded-b-md bg-black;
   flex-basis: 50%;
-  background-color: black;
 
   &::after {
-    @apply bg-gray-800;
+    @apply bg-gray-900;
     content: '';
     position: absolute;
     top: 50%;
@@ -38,10 +32,16 @@ export default defineComponent({});
     transform: translateY(-3px) translateX(-18px);
     border-radius: 3px;
   }
-}
 
-.right {
-  @apply text-center;
-  flex-basis: 25%;
+  &::before {
+    @apply bg-gray-900 rounded-full opacity-75;
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-5px) translateX(-5px);
+  }
 }
 </style>
