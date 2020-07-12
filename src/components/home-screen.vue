@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex flex-col bg-white bg-cover w-full h-full"
-    :style="{ backgroundImage }"
+    :style="{ backgroundImage: 'url(assets/wallpaper.jpg)' }"
   >
     <i-top-bar />
     <i-carousel class="flex-grow">
@@ -33,8 +33,6 @@ import IDock from './dock/i-dock.vue';
 import ITopBar from './top-bar/i-top-bar.vue';
 import * as theme from '../theme';
 
-import wallpaper from '../../assets/wallpaper.jpg';
-
 export default defineComponent({
   components: {
     IAppIcon,
@@ -43,8 +41,7 @@ export default defineComponent({
     ITopBar
   },
   setup() {
-    const backgroundImage = `url(${wallpaper}`;
-    return { theme, backgroundImage };
+    return { theme };
   }
 });
 </script>
