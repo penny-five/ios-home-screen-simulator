@@ -13,10 +13,14 @@ export default defineComponent({});
 <style lang="postcss" scoped>
 .frame {
   @apply relative rounded-lg overflow-hidden;
-  width: 315px;
-  max-width: 315px;
-  height: 600px;
-  max-height: 600px;
+
+  --width: 315px;
+  --height: 600px;
+
+  width: var(--width);
+  max-width: var(--width);
+  height: var(--height);
+  max-height: var(--height);
 
   border: 5px solid black;
   box-shadow: 0 0 0 6px #353535;

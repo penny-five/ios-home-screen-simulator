@@ -49,25 +49,27 @@ export default defineComponent({
   @apply relative inline-flex items-center justify-center rounded-md;
   width: 52px;
   height: 52px;
-}
 
-.icon:hover::after {
-  @apply rounded-md absolute top-0 right-0 bottom-0 left-0 z-10;
-  content: '';
-  background-color: #3535351f;
-}
+  &:hover {
+    &::after {
+      @apply rounded-md absolute top-0 right-0 bottom-0 left-0 z-10;
+      content: '';
+      background-color: #3535351f;
+    }
+  }
 
-.icon .fa {
-  font-size: 30px;
-}
+  & > .fa {
+    font-size: 30px;
+  }
 
-.notification-count {
-  @apply absolute flex items-center justify-center rounded-full text-white select-none z-20;
-  top: -8px;
-  right: -8px;
-  min-width: 21px;
-  padding: 1px 4px;
-  background-color: red;
-  font-size: 0.8rem;
+  & > .notification-count {
+    @apply absolute flex items-center justify-center rounded-full text-white select-none z-20;
+    top: -8px;
+    right: -8px;
+    min-width: 21px;
+    padding: 1px 4px;
+    background-color: red;
+    font-size: 0.8rem;
+  }
 }
 </style>
