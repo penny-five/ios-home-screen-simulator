@@ -24,24 +24,17 @@ export default defineComponent({
         carouselRef?.value?.getBoundingClientRect().width ?? 0;
     });
 
-    const getScreenXPosition = (payload: TouchEvent | PointerEvent) => {
-      if (payload instanceof TouchEvent) {
-        return payload.touches[0].screenX;
-      }
-      return payload.screenX;
-    };
-
-    const onSwipeStart = (payload: TouchEvent | PointerEvent) => {
+    const onSwipeStart = (payload: PointerEvent) => {
       if (swipeIsSettling || swipeIsInProgress) return;
 
-      swipeStartPosition = getScreenXPosition(payload);
+      swipeStartPosition = payload.screenX;
       swipeIsInProgress = true;
     };
 
-    const onSwipeMove = (payload: TouchEvent | PointerEvent) => {
+    const onSwipeMove = (payload: PointerEvent) => {
       if (swipeIsSettling || !swipeIsInProgress) return;
 
-      swipeOffset.value = getScreenXPosition(payload) - swipeStartPosition;
+      swipeOffset.value = payload.screenX - swipeStartPosition;
     };
 
     const onSwipeEnd = () => {
@@ -112,15 +105,11 @@ export default defineComponent({
       return () => (
         <div
           ref={carouselRef}
-          class="flex flex-col relative w-full overflow-x-hidden"
-          onTouchstart={onSwipeStart}
-          onTouchmove={onSwipeMove}
-          onTouchend={onSwipeEnd}
+          class="flex flex-col relative w-full overflow-x-hidden touch-action-none"
           onPointerdown={onSwipeStart}
           onPointermove={onSwipeMove}
           onPointerup={onSwipeEnd}
           onPointerleave={onSwipeEnd}
-          onPointerout={onSwipeEnd}
           onPointercancel={onSwipeEnd}
         >
           <div class="relative flex-grow">

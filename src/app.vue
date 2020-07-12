@@ -24,6 +24,7 @@ export default defineComponent({
 @tailwind components;
 @tailwind utilities;
 @import '~@fortawesome/fontawesome-free/css/all.css';
+@import '../assets/utilities.css';
 
 #app {
   @apply flex justify-center items-center flex-grow min-h-screen bg-gray-100;
