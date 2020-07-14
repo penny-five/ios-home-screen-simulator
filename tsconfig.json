@@ -6,7 +6,8 @@
     "strict": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
-    "lib": ["dom"]
+    "lib": ["dom"],
+    "jsx": "preserve"
   },
 
   "include": ["./src/**/*.ts", "./src/**/*.vue", "./typings/**/*.ts"]

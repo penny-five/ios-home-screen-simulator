@@ -3,6 +3,7 @@ import * as path from 'path';
 import { CssLoaderPluginOptions } from 'css-loader';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { Options as TsLoaderOptions } from 'ts-loader';
 import { VueLoaderPlugin } from 'vue-loader';
 import * as webpack from 'webpack';
 
@@ -12,18 +13,27 @@ const config: webpack.Configuration = {
     rules: [
       {
         test: /\.tsx?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader'
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              appendTsxSuffixTo: [/.vue$/]
+            } as TsLoaderOptions
           }
         ]
       },
       {
         test: /\.vue$/,
+        exclude: /node_modules/,
         use: 'vue-loader'
       },
       {
         test: /\.(post)?css$/,
+        exclude: /node_modules/,
         use: [
           'vue-style-loader',
           {
