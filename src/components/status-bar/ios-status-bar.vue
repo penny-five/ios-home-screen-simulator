@@ -20,8 +20,9 @@
 
 <script lang="ts">
 import random from 'lodash.random';
-import { defineComponent, ref, onBeforeUnmount } from 'vue';
+import { defineComponent, ref } from 'vue';
 
+import { useInterval } from '../../composables/interval';
 import IosStatusBarBatteryLevelIndicator from './ios-status-bar-battery-level-indicator.vue';
 import IosStatusBarClock from './ios-status-bar-clock.vue';
 import IosStatusBarCellSignalStrengthIndicator from './ios-status-bar-cell-signal-strength-indicator.vue';
@@ -53,18 +54,9 @@ export default defineComponent({
       wifiSignalStrength.value = random(1, 3);
     };
 
-    const intervalId = setInterval(() => {
-      decreaseBatteryLevel();
-      randomizeCellSignalStrength();
-      randomizeWifiSignalStrength();
-    }, 60 * 1000);
-
-    onBeforeUnmount(() => {
-      clearInterval(intervalId);
-    });
-
-    randomizeCellSignalStrength();
-    randomizeWifiSignalStrength();
+    useInterval(decreaseBatteryLevel, 60 * 1000);
+    useInterval(randomizeCellSignalStrength, 30 * 1000, true);
+    useInterval(randomizeWifiSignalStrength, 30 * 1000, true);
 
     return { batteryLevel, cellSignalStrength, wifiSignalStrength };
   }

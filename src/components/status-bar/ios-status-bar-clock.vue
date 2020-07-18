@@ -3,7 +3,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, onBeforeUnmount } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
+
+import { useInterval } from '../../composables/interval';
 
 export default defineComponent({
   setup() {
@@ -15,13 +17,9 @@ export default defineComponent({
       return `${hours}.${minutes < 10 ? '0' + minutes : minutes}`;
     });
 
-    const intervalId = setInterval(() => {
+    useInterval(() => {
       time.value = new Date();
     }, 1000);
-
-    onBeforeUnmount(() => {
-      clearInterval(intervalId);
-    });
 
     return { formattedTime };
   }
