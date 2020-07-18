@@ -77,12 +77,11 @@ export default defineComponent({
   }
 
   & > .notification-count {
-    @apply absolute flex items-center justify-center rounded-full text-white select-none z-20;
+    @apply absolute flex items-center justify-center rounded-full text-white select-none bg-red-600 z-20;
     top: -8px;
     right: -8px;
     min-width: 21px;
     padding: 1px 4px;
-    background-color: red;
     font-size: 0.8rem;
   }
 }

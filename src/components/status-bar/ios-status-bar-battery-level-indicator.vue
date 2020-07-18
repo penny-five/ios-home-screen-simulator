@@ -41,13 +41,12 @@ export default defineComponent({
   }
 
   & > .level {
-    @apply absolute bg-white;
+    @apply absolute bg-white origin-left;
     top: 2px;
     right: 2px;
     bottom: 2px;
     left: 2px;
     border-radius: 1px;
-    transform-origin: 0% 100%;
 
     &.level--low {
       @apply bg-red-700;

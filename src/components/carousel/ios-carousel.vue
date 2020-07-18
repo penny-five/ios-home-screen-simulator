@@ -14,6 +14,7 @@ export default defineComponent({
     const pageCount = computed(() => defaultSlot?.().length ?? 0);
     const currentPage = ref(0);
 
+    const swipeEasingFn = BezierEasing(0, 0, 0.5, 0.8);
     const swipeOffset = ref(0);
     let swipeStartPosition = 0;
     let swipeIsInProgress = false;
@@ -46,27 +47,25 @@ export default defineComponent({
       const animationEndTime = animationStartTime + animationDuration;
       const animationStartPosition = swipeOffset.value;
 
-      let targetPage = currentPage.value;
+      let nextPage = currentPage.value;
 
       const shouldChangePage =
         Math.abs(swipeOffset.value) > 0.5 * carouselWidth.value;
 
       if (shouldChangePage) {
-        targetPage += swipeOffset.value < 0 ? 1 : -1;
-        targetPage = clamp(targetPage, 0, pageCount.value - 1);
+        nextPage += swipeOffset.value < 0 ? 1 : -1;
+        nextPage = clamp(nextPage, 0, pageCount.value - 1);
       }
 
       let animationEndPosition: number;
 
-      if (targetPage > currentPage.value) {
+      if (nextPage > currentPage.value) {
         animationEndPosition = -carouselWidth.value;
-      } else if (targetPage < currentPage.value) {
+      } else if (nextPage < currentPage.value) {
         animationEndPosition = carouselWidth.value;
       } else {
         animationEndPosition = 0;
       }
-
-      const easingFn = BezierEasing(0, 0, 0.5, 0.8);
 
       const updateSwipeSettling = () => {
         requestAnimationFrame(() => {
@@ -77,7 +76,7 @@ export default defineComponent({
             (animationEndTime - animationStartTime);
 
           if (progress >= 1.0) {
-            currentPage.value = targetPage;
+            currentPage.value = nextPage;
             swipeOffset.value = 0;
             swipeIsSettling = false;
             return;
@@ -85,7 +84,7 @@ export default defineComponent({
 
           swipeOffset.value =
             animationStartPosition +
-            easingFn(progress) *
+            swipeEasingFn(progress) *
               (animationEndPosition - animationStartPosition);
 
           updateSwipeSettling();
@@ -98,7 +97,7 @@ export default defineComponent({
       updateSwipeSettling();
     };
 
-    const calculatePageOffset = (index: number) =>
+    const getPageOffset = (index: number) =>
       carouselWidth.value * (index - currentPage.value) + swipeOffset.value;
 
     if (defaultSlot) {
@@ -117,7 +116,7 @@ export default defineComponent({
               <div
                 class="absolute top-0 bottom-0 left-0 w-full"
                 style={{
-                  left: `${calculatePageOffset(index)}px`
+                  left: `${getPageOffset(index)}px`
                 }}
               >
                 {el}

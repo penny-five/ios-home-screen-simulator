@@ -4,9 +4,7 @@
       v-for="page in pageCount"
       :key="page"
       class="w-2 h-2 rounded-full bg-gray-300 shadow-xs"
-      :class="{
-        active: page - 1 == currentPage
-      }"
+      :class="{ active: page - 1 == currentPage }"
     ></div>
   </div>
 </template>

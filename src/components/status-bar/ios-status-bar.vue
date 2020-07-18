@@ -41,7 +41,7 @@ export default defineComponent({
     const cellSignalStrength = ref(1);
     const wifiSignalStrength = ref(1);
 
-    const reduceBatteryLevel = () => {
+    const decreaseBatteryLevel = () => {
       batteryLevel.value = Math.max(1, batteryLevel.value - 1);
     };
 
@@ -54,7 +54,7 @@ export default defineComponent({
     };
 
     const intervalId = setInterval(() => {
-      reduceBatteryLevel();
+      decreaseBatteryLevel();
       randomizeCellSignalStrength();
       randomizeWifiSignalStrength();
     }, 60 * 1000);

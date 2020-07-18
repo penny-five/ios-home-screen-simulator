@@ -15,21 +15,19 @@ export default defineComponent({});
   min-height: 25px;
 
   &::after {
-    @apply bg-gray-900;
+    @apply absolute bg-gray-900;
     content: '';
-    position: absolute;
     top: 50%;
     left: 50%;
     width: 36px;
     height: 6px;
-    transform: translateY(-3px) translateX(-18px);
     border-radius: 3px;
+    transform: translateY(-3px) translateX(-18px);
   }
 
   &::before {
-    @apply bg-gray-900 rounded-full opacity-75;
+    @apply absolute bg-gray-900 rounded-full opacity-75;
     content: '';
-    position: absolute;
     top: 50%;
     right: 15%;
     width: 10px;
