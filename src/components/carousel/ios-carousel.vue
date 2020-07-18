@@ -3,7 +3,7 @@ import BezierEasing from 'bezier-easing';
 import clamp from 'lodash.clamp';
 import { defineComponent, ref, computed, onMounted, h } from 'vue';
 
-import ICarouselPagination from './i-carousel-pagination.vue';
+import IosCarouselPagination from './ios-carousel-pagination.vue';
 
 export default defineComponent({
   setup(props, { slots }) {
@@ -124,7 +124,7 @@ export default defineComponent({
               </div>
             ))}
           </div>
-          <ICarouselPagination
+          <IosCarouselPagination
             currentPage={currentPage.value}
             pageCount={pageCount.value}
           />

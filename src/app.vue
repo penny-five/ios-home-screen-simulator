@@ -1,19 +1,19 @@
 <template>
-  <i-phone-frame>
-    <i-home-screen />
-  </i-phone-frame>
+  <ios-phone-frame>
+    <ios-home-screen />
+  </ios-phone-frame>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import IHomeScreen from './components/i-home-screen.vue';
-import IPhoneFrame from './components/i-phone-frame.vue';
+import IosHomeScreen from './components/ios-home-screen.vue';
+import IosPhoneFrame from './components/ios-phone-frame.vue';
 
 export default defineComponent({
   components: {
-    IHomeScreen,
-    IPhoneFrame
+    IosHomeScreen,
+    IosPhoneFrame
   }
 });
 </script>
