@@ -11,9 +11,11 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.13.1",
     "@types/lodash.clamp": "4.0.6",
+    "@types/lodash.random": "3.2.6",
     "@types/lodash.times": "4.3.6",
     "bezier-easing": "2.1.0",
     "lodash.clamp": "4.0.3",
+    "lodash.random": "3.2.0",
     "lodash.times": "4.3.2",
     "tailwindcss": "1.4.6",
     "vue": "3.0.0-rc.1"

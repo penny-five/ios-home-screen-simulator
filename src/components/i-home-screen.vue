@@ -3,7 +3,7 @@
     class="flex flex-col bg-white bg-cover w-full h-full"
     :style="{ backgroundImage: 'url(assets/wallpaper.jpg)' }"
   >
-    <i-top-bar />
+    <i-status-bar />
     <i-carousel class="flex-grow">
       <i-app-grid>
         <i-app-icon
@@ -96,7 +96,7 @@ import IAppGrid from './app-grid/i-app-grid.vue';
 import IAppIcon from './app-icon/i-app-icon.vue';
 import ICarousel from './carousel/i-carousel.vue';
 import IDock from './dock/i-dock.vue';
-import ITopBar from './top-bar/i-top-bar.vue';
+import IStatusBar from './status-bar/i-status-bar.vue';
 import * as theme from '../theme';
 
 export default defineComponent({
@@ -105,7 +105,7 @@ export default defineComponent({
     IAppIcon,
     ICarousel,
     IDock,
-    ITopBar
+    IStatusBar
   },
   setup() {
     return { theme };
