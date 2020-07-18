@@ -16,11 +16,11 @@
     "lodash.clamp": "4.0.3",
     "lodash.times": "4.3.2",
     "tailwindcss": "1.4.6",
-    "vue": "3.0.0-beta.20"
+    "vue": "3.0.0-rc.1"
   },
   "devDependencies": {
     "@ant-design-vue/babel-helper-vue-transform-on": "1.0.1",
-    "@ant-design-vue/babel-plugin-jsx": "1.0.0-alpha.6",
+    "@ant-design-vue/babel-plugin-jsx": "1.0.0-beta.3",
     "@babel/core": "7.10.4",
     "@babel/plugin-transform-typescript": "7.10.4",
     "@babel/preset-env": "7.10.4",
@@ -31,7 +31,7 @@
     "@types/webpack-dev-server": "3.11.0",
     "@typescript-eslint/eslint-plugin": "3.6.0",
     "@typescript-eslint/parser": "3.6.0",
-    "@vue/compiler-sfc": "3.0.0-beta.20",
+    "@vue/compiler-sfc": "3.0.0-rc.1",
     "babel-loader": "8.1.0",
     "clean-webpack-plugin": "3.0.0",
     "cross-env": "7.0.2",
@@ -44,7 +44,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
-    "eslint-plugin-vue": "7.0.0-alpha.9",
+    "eslint-plugin-vue": "7.0.0-alpha.10",
     "file-loader": "6.0.0",
     "html-webpack-plugin": "4.3.0",
     "husky": "4.2.5",
