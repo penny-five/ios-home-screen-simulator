@@ -74,13 +74,13 @@ export default defineComponent({
   }
 
   & > .title {
-    @apply inline-flex text-white text-sm truncate max-w-full select-none font-bold;
+    @apply inline-flex text-white text-sm truncate max-w-full font-bold;
 
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   }
 
   & > .notification-count {
-    @apply absolute flex items-center justify-center rounded-full text-white select-none bg-red-600 z-20;
+    @apply absolute flex items-center justify-center rounded-full text-white bg-red-600 z-20;
 
     top: -8px;
     right: -8px;

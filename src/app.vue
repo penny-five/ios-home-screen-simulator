@@ -28,6 +28,6 @@ export default defineComponent({
 @import '../assets/css/utilities.css';
 
 #app {
-  @apply flex justify-center items-center flex-grow min-h-screen bg-gray-100;
+  @apply flex justify-center items-center flex-grow min-h-screen bg-gray-100 select-none;
 }
 </style>
