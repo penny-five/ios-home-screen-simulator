@@ -2,7 +2,7 @@
   <div class="battery">
     <div
       class="level"
-      :class="{ 'level--low': level <= 20 }"
+      :class="{ 'level--alarming': level <= 20 }"
       :style="{ transform: `scaleX(${level / 100})` }"
     />
   </div>
@@ -51,7 +51,7 @@ export default defineComponent({
     left: 2px;
     border-radius: 1px;
 
-    &.level--low {
+    &.level--alarming {
       @apply bg-red-700;
     }
   }
