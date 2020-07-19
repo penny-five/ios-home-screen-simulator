@@ -58,6 +58,7 @@ export default defineComponent({
 
   & > .icon {
     @apply relative inline-flex flex-col items-center justify-center rounded-md;
+
     font-size: 30px;
     width: 48px;
     height: 48px;
@@ -65,6 +66,7 @@ export default defineComponent({
     &:hover {
       &::after {
         @apply rounded-md absolute top-0 right-0 bottom-0 left-0 z-10;
+
         content: '';
         background-color: #3535351f;
       }
@@ -73,11 +75,13 @@ export default defineComponent({
 
   & > .title {
     @apply inline-flex text-white text-sm truncate max-w-full select-none font-bold;
+
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   }
 
   & > .notification-count {
     @apply absolute flex items-center justify-center rounded-full text-white select-none bg-red-600 z-20;
+
     top: -8px;
     right: -8px;
     min-width: 21px;

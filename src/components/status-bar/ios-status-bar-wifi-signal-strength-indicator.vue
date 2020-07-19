@@ -32,9 +32,9 @@ export default defineComponent({
 
   & > .level {
     @apply absolute border-gray-600 rounded-full bottom-0 left-0;
+
     width: 10px;
     height: 10px;
-
     border-bottom-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;

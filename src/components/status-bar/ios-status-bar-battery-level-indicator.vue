@@ -25,6 +25,7 @@ export default defineComponent({
 <style lang="postcss" scoped>
 .battery {
   @apply relative border-gray-600;
+
   width: 20px;
   height: 12px;
   border-width: 1px;
@@ -32,6 +33,7 @@ export default defineComponent({
 
   &::after {
     @apply absolute bg-gray-600;
+
     content: '';
     right: -4px;
     top: 3px;
@@ -42,6 +44,7 @@ export default defineComponent({
 
   & > .level {
     @apply absolute bg-white origin-left;
+
     top: 2px;
     right: 2px;
     bottom: 2px;

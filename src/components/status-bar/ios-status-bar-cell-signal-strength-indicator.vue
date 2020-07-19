@@ -29,6 +29,7 @@ export default defineComponent({
 
   & > .level {
     @apply bg-gray-600;
+
     width: 3px;
     height: 10px;
     border-radius: 4px;

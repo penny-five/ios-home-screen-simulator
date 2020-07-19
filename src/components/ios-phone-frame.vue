@@ -21,12 +21,12 @@ export default defineComponent({});
   max-width: var(--width);
   height: var(--height);
   max-height: var(--height);
-
   border: 5px solid black;
   box-shadow: 0 0 0 6px #353535;
 
   &::after {
     @apply absolute top-0 right-0 bottom-0 left-0 pointer-events-none bg-cover;
+
     content: '';
     background: linear-gradient(
       214deg,
