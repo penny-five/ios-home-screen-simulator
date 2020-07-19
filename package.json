@@ -17,7 +17,7 @@
     "lodash.clamp": "4.0.3",
     "lodash.random": "3.2.0",
     "lodash.times": "4.3.2",
-    "tailwindcss": "1.4.6",
+    "tailwindcss": "1.5.1",
     "vue": "3.0.0-rc.1"
   },
   "devDependencies": {
