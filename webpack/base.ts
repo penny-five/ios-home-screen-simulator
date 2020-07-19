@@ -60,7 +60,11 @@ const config: webpack.Configuration = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
+    alias: {
+      '@components': path.resolve(__dirname, '../src/components'),
+      '@composables': path.resolve(__dirname, '../src/composables')
+    }
   },
   plugins: [
     new VueLoaderPlugin(),

@@ -9,6 +9,5 @@
     "lib": ["dom"],
     "jsx": "preserve"
   },
-
   "include": ["./src/**/*.ts", "./src/**/*.vue", "./typings/**/*.ts"]
 }

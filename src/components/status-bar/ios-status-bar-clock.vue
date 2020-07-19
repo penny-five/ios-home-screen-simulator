@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 
-import { useInterval } from '../../composables/interval';
+import { useInterval } from '@composables/interval';
 
 export default defineComponent({
   setup() {

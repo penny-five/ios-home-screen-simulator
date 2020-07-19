@@ -22,7 +22,7 @@
 import random from 'lodash.random';
 import { defineComponent, ref } from 'vue';
 
-import { useInterval } from '../../composables/interval';
+import { useInterval } from '@composables/interval';
 import IosStatusBarBatteryLevelIndicator from './ios-status-bar-battery-level-indicator.vue';
 import IosStatusBarClock from './ios-status-bar-clock.vue';
 import IosStatusBarCellSignalStrengthIndicator from './ios-status-bar-cell-signal-strength-indicator.vue';
