@@ -87,7 +87,7 @@
     }
   },
   "lint-staged": {
-    "*.{json,md,html}": [
+    "*.{json,md,html,yml,yaml}": [
       "prettier --write"
     ],
     "*.{js,ts}": [

@@ -1,0 +1,39 @@
+name: default
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install dependencies
+        run: yarn install
+      - name: Run linters
+        run: yarn lint
+
+  deploy:
+    runs-on: ubuntu-18.04
+    env:
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: deploy
+        run: yarn deploy:prod
