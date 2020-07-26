@@ -2,7 +2,7 @@
 
 ![default](https://github.com/penny-five/ios-home-screen-simulator/workflows/default/badge.svg)
 
-:construction: **Work in progress** :construction_worker:
+:construction: **Work in progress** :construction: :construction_worker: :factory:
 
 Live demo available at https://ios-home-screen-simulator.netlify.app.
 
