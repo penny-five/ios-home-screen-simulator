@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex flex-col bg-white bg-cover w-full h-full"
-    :style="{ backgroundImage: 'url(assets/wallpaper.jpg)' }"
+    :style="{ backgroundImage: `url(${wallpaper})` }"
   >
     <ios-status-bar />
     <ios-carousel class="flex-grow">
@@ -98,6 +98,7 @@ import IosCarousel from './carousel/ios-carousel.vue';
 import IosDock from './dock/ios-dock.vue';
 import IosStatusBar from './status-bar/ios-status-bar.vue';
 import * as theme from '../theme';
+import wallpaper from '@assets/wallpaper.jpg';
 
 export default defineComponent({
   components: {
@@ -108,7 +109,7 @@ export default defineComponent({
     IosStatusBar
   },
   setup() {
-    return { theme };
+    return { theme, wallpaper };
   }
 });
 </script>

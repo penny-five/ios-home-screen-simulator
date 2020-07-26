@@ -62,6 +62,7 @@ const config: webpack.Configuration = {
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
+      '@assets': path.resolve(__dirname, '../assets'),
       '@components': path.resolve(__dirname, '../src/components'),
       '@composables': path.resolve(__dirname, '../src/composables')
     }

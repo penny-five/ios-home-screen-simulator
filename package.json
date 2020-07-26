@@ -52,6 +52,7 @@
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "mini-css-extract-plugin": "0.9.0",
+    "netlify-cli": "2.58.0",
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.7.0",
     "prettier": "2.0.5",
@@ -76,7 +77,9 @@
     "lint:eslint": "eslint --ignore-path .gitignore --ext ts,js,vue .",
     "lint:stylelint": "stylelint --ignore-path .gitignore **/*.{css,vue}",
     "dev": "cross-env NODE_ENV=development TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack-dev-server",
-    "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack"
+    "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"tsconfig.webpack.json\" webpack",
+    "deploy:draft": "netlify deploy --dir dist",
+    "deploy:prod": "netlify deploy --prod --dir dist "
   },
   "husky": {
     "hooks": {
